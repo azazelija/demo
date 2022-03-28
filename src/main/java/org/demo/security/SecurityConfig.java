@@ -39,6 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //Доступ только для пользователей с ролью Администратор
                 .antMatchers("/users/**").hasAuthority(RoleEnum.ADMIN.getRole())
                 .antMatchers("/roles/**").hasAuthority(RoleEnum.ADMIN.getRole())
+                .antMatchers("/messages/**").anonymous()
                 //Доступ разрешен всем пользователей
                 .antMatchers("/").permitAll()
                 //Все остальные страницы требуют аутентификации
@@ -53,7 +54,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                 .permitAll()
-                .logoutSuccessUrl("/");
+                .logoutSuccessUrl("/")
+                .and()
+                .httpBasic();
     }
 
     @Override

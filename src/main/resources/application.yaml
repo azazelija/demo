@@ -17,9 +17,17 @@ spring:
     database: postgresql
 
 security:
-  user:
-    name: user
-    password: user
+  oauth2:
+    cient:
+      clientId: 620652621050-v6a9uqrjq0ejspm5oqbek48sl6od55gt.apps.googleusercontent.com
+      clientSecret: Ho0qL86KNYCBwYY8bkJDLjWN
+      clientAuthenticationScheme: form
+      scope: openid,email,profile
+      accessTokenUri: https://www.googleapis.com/oauth2/v4/token
+      userAuthorizationUri: https://accounts.google.com/o/oauth2/v2/auth
+    resource:
+      userInfoUri: https://www.googleapis.com/oauth2/v3/userinfo
+      preferTokenInfo: true
 
 server:
   servlet:
