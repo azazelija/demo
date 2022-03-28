@@ -14,7 +14,7 @@ public class Role {
 
     Long id;
 
-    String name;
+    RoleEnum name;
 
     List<User> users;
 }

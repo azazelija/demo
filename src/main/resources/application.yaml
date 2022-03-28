@@ -16,6 +16,11 @@ spring:
     show-sql: true
     database: postgresql
 
+security:
+  user:
+    name: user
+    password: user
+
 server:
   servlet:
     context-path: /demo

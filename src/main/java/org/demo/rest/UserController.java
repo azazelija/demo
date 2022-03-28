@@ -20,9 +20,16 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/role/{name}")
-    public ResponseEntity<Set<User>> getByRole(@PathVariable String name) {
-        Set<User> users = userService.getByRole(name);
+    @GetMapping("/role/user")
+    public ResponseEntity<Set<User>> getByRoleUser() {
+        Set<User> users = userService.getByRoleUser();
+
+        return new ResponseEntity<>(users, HttpStatus.OK);
+    }
+
+    @GetMapping("/role/admin")
+    public ResponseEntity<Set<User>> getByRoleAdmin() {
+        Set<User> users = userService.getByRoleAdmin();
 
         return new ResponseEntity<>(users, HttpStatus.OK);
     }

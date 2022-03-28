@@ -9,7 +9,9 @@ public interface UserService {
 
     public User getById(Long id);
 
-    public Set<User> getByRole(String role);
+    public Set<User> getByRoleUser();
+
+    public Set<User> getByRoleAdmin();
 
     public User create(User user);
 

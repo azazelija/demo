@@ -1,9 +1,9 @@
 package org.demo.entity;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
+import org.demo.dto.RoleEnum;
+import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 import java.util.List;
@@ -13,6 +13,7 @@ import java.util.List;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Getter
 @Setter
+@NoArgsConstructor
 public class RoleEntity {
 
     @Id
@@ -20,7 +21,8 @@ public class RoleEntity {
     Long id;
 
     @Column(name = "name")
-    String name;
+    @Enumerated(EnumType.STRING)
+    RoleEnum name;
 
     @OneToMany(mappedBy = "role")
     List<UserEntity> users;

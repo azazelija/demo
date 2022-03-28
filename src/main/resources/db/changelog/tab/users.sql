@@ -11,9 +11,12 @@ create table if not exists users
     constraint pk_user_id primary key,
     role_id     bigint      not null,
     name  varchar(50) not null,
+    password varchar(250) not null,
     phone       varchar(50) not null,
-    email       varchar(50)
-    );
+    email       varchar(50),
+
+    CONSTRAINT name_unique UNIQUE (name)
+   );
 
 
 -- changeset ${user.name}:comment_on_columns_users.sql logicalFilePath:db/changelog/tab/users.sql runOnChange:true splitStatements:true
